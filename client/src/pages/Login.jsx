@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('demo');
+  const [password, setPassword] = useState('demo');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
@@ -26,27 +26,15 @@ const Login = () => {
     setLoading(false);
   };
 
-  const quickLogin = (role) => {
-    const credentials = {
-      intern: { username: 'intern', password: 'demo' },
-      analyst: { username: 'analyst', password: 'demo' },
-      lead: { username: 'lead', password: 'demo' },
-    };
-
-    const cred = credentials[role];
-    setUsername(cred.username);
-    setPassword(cred.password);
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100 flex items-center justify-center px-4">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
           <div className="text-6xl mb-4">🤖</div>
           <h1 className="text-3xl font-bold text-gray-900">
-            Intelligent Automation Hub
+            Intelligent Automation
           </h1>
-          <p className="text-gray-600 mt-2">Fonterra Automation Team</p>
+          <p className="text-gray-600 mt-2">Automation Management Platform</p>
         </div>
 
         <div className="card">
@@ -90,41 +78,11 @@ const Login = () => {
             </button>
           </form>
 
-          <div className="mt-6 pt-6 border-t border-gray-200">
-            <p className="text-sm text-gray-600 mb-3">Quick login as:</p>
-            <div className="grid grid-cols-3 gap-2">
-              <button
-                onClick={() => quickLogin('intern')}
-                className="btn btn-secondary text-xs"
-              >
-                Intern
-              </button>
-              <button
-                onClick={() => quickLogin('analyst')}
-                className="btn btn-secondary text-xs"
-              >
-                Analyst
-              </button>
-              <button
-                onClick={() => quickLogin('lead')}
-                className="btn btn-secondary text-xs"
-              >
-                Team Lead
-              </button>
-            </div>
-          </div>
-
           <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-            <p className="text-xs text-blue-800">
-              Demo credentials: All accounts use password "demo"
+            <p className="text-xs text-blue-800 text-center">
+              Demo credentials: <strong>demo</strong> / <strong>demo</strong>
             </p>
           </div>
-        </div>
-
-        <div className="mt-6 text-center">
-          <p className="text-sm text-gray-500">
-            Built with React + Vite + Express
-          </p>
         </div>
       </div>
     </div>

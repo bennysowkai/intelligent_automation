@@ -16,11 +16,9 @@ class DataStore {
   }
 
   initializeData() {
-    // Seed users
+    // Seed users - single demo account
     this.users = [
-      { id: 1, username: 'intern', name: 'Alex Chen', role: 'Intern', password: 'demo' },
-      { id: 2, username: 'analyst', name: 'Sam Taylor', role: 'Automation Analyst', password: 'demo' },
-      { id: 3, username: 'lead', name: 'Jordan Smith', role: 'Team Lead', password: 'demo' }
+      { id: 1, username: 'demo', name: 'Demo User', role: 'User', password: 'demo' }
     ];
 
     // Seed onboarding tasks

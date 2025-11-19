@@ -1,6 +1,6 @@
-# Intelligent Automation Hub
+# Intelligent Automation
 
-A modern, full-stack web application demonstrating the capabilities of an Intelligent Automation Intern at Fonterra. This internal tool manages automation projects, onboarding, surveys, documentation, and governance — all built with a React frontend and Express backend.
+A modern, full-stack web application demonstrating the capabilities of an Intelligent Automation Intern at . This internal tool manages automation projects, onboarding, surveys, documentation, and governance — all built with a React frontend and Express backend.
 
 **🐳 Docker Ready** | Single-command deployment with Docker Compose | Production-optimized Nginx reverse proxy | All services on port 8080
 
@@ -531,7 +531,7 @@ This project is for demonstration purposes. Use it as a template for your own pr
 
 ## 👥 Credits
 
-Built to demonstrate the capabilities of an Intelligent Automation Intern role at Fonterra, showcasing modern full-stack JavaScript development skills.
+Built to demonstrate the capabilities of an Intelligent Automation Intern role at , showcasing modern full-stack JavaScript development skills.
 
 ---
 

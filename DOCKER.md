@@ -1,6 +1,6 @@
 # Docker Deployment Guide
 
-This guide provides detailed information about deploying the Intelligent Automation Hub using Docker.
+This guide provides detailed information about deploying the Intelligent Automation using Docker.
 
 ## Architecture Overview
 

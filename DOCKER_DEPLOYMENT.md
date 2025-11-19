@@ -2,7 +2,7 @@
 
 ## 🎉 What's Been Added
 
-Your Intelligent Automation Hub now has complete Docker support with Nginx reverse proxy!
+Your Intelligent Automation now has complete Docker support with Nginx reverse proxy!
 
 ### Architecture
 
@@ -363,4 +363,4 @@ Your application is now:
 - **Well-documented** - Easy to maintain
 - **CI/CD ready** - GitHub Actions workflow
 
-Enjoy your Docker-powered Intelligent Automation Hub! 🚀
+Enjoy your Docker-powered Intelligent Automation! 🚀

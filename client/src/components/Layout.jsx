@@ -35,9 +35,9 @@ const Layout = ({ children }) => {
               <div className="text-3xl">🤖</div>
               <div>
                 <h1 className="text-xl font-bold text-gray-900">
-                  Intelligent Automation Hub
+                  Intelligent Automation
                 </h1>
-                <p className="text-sm text-gray-500">Fonterra Automation Team</p>
+                <p className="text-sm text-gray-500">Automation Management Platform</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
@@ -87,7 +87,7 @@ const Layout = ({ children }) => {
       <footer className="bg-white border-t border-gray-200 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <p className="text-center text-sm text-gray-500">
-            Intelligent Automation Hub © 2025 Fonterra | Built with React + Express
+            Intelligent Automation © 2025
           </p>
         </div>
       </footer>
