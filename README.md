@@ -2,6 +2,8 @@
 
 A modern, full-stack web application demonstrating the capabilities of an Intelligent Automation Intern at Fonterra. This internal tool manages automation projects, onboarding, surveys, documentation, and governance — all built with a React frontend and Express backend.
 
+**🐳 Docker Ready** | Single-command deployment with Docker Compose | Production-optimized Nginx reverse proxy | All services on port 8080
+
 ## 🎯 Purpose
 
 This application showcases how an automation intern could solve real-world problems using modern JavaScript technologies instead of Power Platform. It demonstrates:
@@ -61,7 +63,164 @@ intelligent_automation/
 └── README.md                 # This file
 ```
 
-## 🚀 Getting Started
+## 🐳 Docker Deployment (Recommended)
+
+The easiest way to run the application is using Docker Compose, which sets up everything with a single command.
+
+### Prerequisites for Docker
+
+- **Docker** >= 20.10.0
+- **Docker Compose** >= 2.0.0
+
+### Quick Start with Docker
+
+1. **Clone the repository and navigate to it**
+   ```bash
+   cd intelligent_automation
+   ```
+
+2. **Use the automated start script (easiest)**
+   ```bash
+   ./start.sh
+   ```
+
+   The script automatically detects Docker and starts the application. If Docker isn't available, it falls back to development mode.
+
+   **Or manually with Docker Compose:**
+   ```bash
+   docker-compose up -d
+   ```
+
+   **Or using Make:**
+   ```bash
+   make up
+   ```
+
+3. **Access the application**
+
+   Open your browser to **http://localhost:8080**
+
+   Everything runs on a single port (8080)!
+   - Frontend: Served by Nginx
+   - Backend API: Proxied through Nginx at `/api/*`
+   - Health check: `http://localhost:8080/health`
+
+4. **View logs**
+   ```bash
+   docker-compose logs -f
+   ```
+
+   Or:
+   ```bash
+   make logs
+   ```
+
+5. **Stop the application**
+   ```bash
+   docker-compose down
+   ```
+
+   Or:
+   ```bash
+   make down
+   ```
+
+### Docker Architecture
+
+The application uses a three-container architecture:
+
+```
+┌─────────────────────────────────────────┐
+│  Nginx (Port 8080)                      │
+│  - Serves React frontend                │
+│  - Reverse proxy for /api/* → backend   │
+│  - SSL/TLS ready                        │
+│  - Gzip compression                     │
+│  - Security headers                     │
+└─────────────┬───────────────────────────┘
+              │
+       ┌──────┴──────┐
+       ▼             ▼
+┌─────────────┐  ┌──────────────┐
+│  Frontend   │  │   Backend    │
+│  (Built)    │  │   API        │
+│  React +    │  │   Express    │
+│  Vite       │  │   Node.js    │
+└─────────────┘  └──────────────┘
+```
+
+**Key Features:**
+- ✅ Single port exposure (8080)
+- ✅ Production-optimized builds
+- ✅ Health checks for all services
+- ✅ Automatic restarts
+- ✅ Network isolation
+- ✅ Multi-stage builds for small images
+
+### Available Make Commands
+
+```bash
+make help      # Show all available commands
+make build     # Build Docker images (no cache)
+make up        # Start all services
+make down      # Stop all services
+make restart   # Restart all services
+make logs      # View service logs
+make clean     # Remove all containers, images, volumes
+make test      # Run tests (local)
+make dev       # Run development mode (without Docker)
+```
+
+### Docker Environment Variables
+
+Edit `docker-compose.yml` to customize:
+
+```yaml
+environment:
+  - NODE_ENV=production
+  - PORT=5000
+  - CORS_ORIGIN=http://localhost:8080
+  - GRAPH_TENANT_ID=your-tenant-id
+  - GRAPH_CLIENT_ID=your-client-id
+```
+
+### Troubleshooting Docker
+
+**Port already in use:**
+```bash
+# Change the port in docker-compose.yml
+ports:
+  - "3000:80"  # Change 8080 to 3000
+```
+
+**Rebuild after code changes:**
+```bash
+docker-compose up -d --build
+```
+
+**View container status:**
+```bash
+docker-compose ps
+```
+
+**Access container shell:**
+```bash
+docker exec -it automation-hub-backend sh
+docker exec -it automation-hub-nginx sh
+```
+
+**Clean everything and start fresh:**
+```bash
+make clean
+make build
+make up
+```
+
+---
+
+## 🚀 Local Development (Without Docker)
+
+If you prefer to run the application locally without Docker:
 
 ### Prerequisites
 
@@ -113,9 +272,9 @@ npm run server
 npm run client
 ```
 
-### Accessing the Application
+### Accessing the Application (Local Development)
 
-1. Open your browser to http://localhost:5173
+1. Open your browser to **http://localhost:5173** (Vite dev server)
 2. You'll be redirected to the login page
 3. Use one of these demo accounts:
 
